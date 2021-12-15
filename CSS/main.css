@@ -1,0 +1,120 @@
+* {
+  margin: 0;
+  padding: 0;
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>✍️</text></svg>")
+      16 0,
+    auto;
+}
+
+body {
+  font-size: 12px;
+  box-sizing: border-box;
+  font-family: "Lato", Arial, sans-serif;
+}
+
+header {
+  background: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+}
+
+.betaBaseLogo {
+  height: 100px;
+  padding: 2vh;
+}
+
+/* @media (min-width: 800px) {
+  .betaBaseLogo {
+    /* margin: auto; */
+/* }
+} */
+
+.hamburgerImg {
+  width: 60px;
+  height: 60px;
+  padding: 2vh;
+}
+
+.xLogo {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+/* .hamburgerMenu .hamburgerItems {
+  display: none;
+} */
+
+.dropDownMenu {
+  display: flex;
+  flex-direction: column;
+  font-size: 2rem;
+  text-align: right;
+  background: #696969;
+  /* width: 25vw; */
+  position: relative;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.dropDown {
+  padding: 0 3vw 0 0;
+  margin: 0.5vh 0 0.5vh 0;
+  line-height: 3rem;
+  color: white;
+}
+
+@media (min-width: 650px) {
+  .hamburgerItems {
+    display: flex;
+    justify-content: space-between;
+    background: black;
+    padding: 0 5vw 0 0;
+  }
+  .hamburgerImg {
+    display: none;
+  }
+  .hItem {
+    color: white;
+    font-size: 1rem;
+    padding: 0 1vw;
+    text-align: center;
+    margin: auto;
+  }
+  .xLogo {
+    color: white;
+    font-size: 5rem;
+  }
+  .dropDownMenu {
+    display: none;
+  }
+}
+
+.toolsSide {
+  background: #ff7f50;
+  width: 15vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+}
+
+.toolImg {
+  width: 5vh;
+  margin: 0.8vh;
+  border: black solid 0.3rem;
+  border-radius: 1rem;
+}
+
+.canvas {
+  width: 100vw;
+  height: 100vh;
+  border: solid black 2px;
+  position: fixed;
+}
