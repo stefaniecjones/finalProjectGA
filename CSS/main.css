@@ -1,9 +1,9 @@
 * {
   margin: 0;
   padding: 0;
-  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>✍️</text></svg>")
+  /* cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>✍️</text></svg>")
       16 0,
-    auto;
+    auto; */
 }
 
 body {
@@ -21,7 +21,7 @@ header {
 }
 
 .betaBaseLogo {
-  height: 100px;
+  height: 50px;
   padding: 2vh;
 }
 
@@ -32,70 +32,95 @@ header {
 } */
 
 .hamburgerImg {
-  width: 60px;
-  height: 60px;
+  width: 30px;
+  height: 30px;
   padding: 2vh;
+  cursor: pointer;
 }
 
-.xLogo {
+.hamburgerImg:hover {
+  background-color: black;
+}
+
+.mainNav {
   display: none;
 }
+
+/* .xLogo {
+  display: none;
+}
+
+.xLogoVisible {
+  color: white;
+  font-size: 5rem;
+  height: 30px;
+  width: 30px;
+} */
 
 a {
   text-decoration: none;
   text-transform: uppercase;
 }
 
-/* .hamburgerMenu .hamburgerItems {
+.hamburgerMenu .mainNav {
   display: none;
-} */
-
-.dropDownMenu {
-  display: flex;
-  flex-direction: column;
-  font-size: 2rem;
-  text-align: right;
-  background: #696969;
-  /* width: 25vw; */
-  position: relative;
-  margin-left: auto;
-  margin-right: 0;
 }
 
-.dropDown {
-  padding: 0 3vw 0 0;
-  margin: 0.5vh 0 0.5vh 0;
-  line-height: 3rem;
+.dropDownMenu {
+  display: none;
+}
+
+.dropDownMenuVisible {
+  display: flex;
   color: white;
+  flex-direction: column;
+  font-size: 1rem;
+  text-align: right;
+  background: #d3d3d3;
+  position: relative;
+  padding: 0.6rem 0.5rem 0.6rem 0;
+  margin-left: auto;
+  margin-right: 0;
+  /* need to make this relative, but how? */
+  position: absolute;
+  z-index: 2;
+}
+
+.dropDownContent {
+  margin: 0.5vh 0 0.5vh 0;
+  line-height: 1rem;
+  color: white;
+  /* position: relative;
+  z-index: 2; */
 }
 
 @media (min-width: 650px) {
-  .hamburgerItems {
+  .hamburgerMenu .mainNav {
     display: flex;
     justify-content: space-between;
     background: black;
-    padding: 0 5vw 0 0;
+    padding: 0 2vw 0 0;
   }
   .hamburgerImg {
     display: none;
   }
-  .hItem {
+  .mainNavContent {
     color: white;
     font-size: 1rem;
     padding: 0 1vw;
     text-align: center;
     margin: auto;
   }
-  .xLogo {
-    color: white;
-    font-size: 5rem;
-  }
   .dropDownMenu {
     display: none;
   }
 }
 
-.toolsSide {
+.toolsMenu {
+  display: none;
+}
+
+.toolMenuVisible {
   background: #ff7f50;
   width: 15vw;
   display: flex;
@@ -103,18 +128,31 @@ a {
   justify-content: flex-start;
   align-items: center;
   height: 100vh;
+  /* need to change to relative alternative positioning */
+  position: absolute;
 }
 
 .toolImg {
   width: 5vh;
   margin: 0.8vh;
-  border: black solid 0.3rem;
-  border-radius: 1rem;
+  border: black solid 0.2rem;
+  border-radius: 0.5rem;
 }
 
-.canvas {
+/* .toolImg:hover,
+.pen:focus {
+  border: red solid 0.2rem;
+} */
+
+canvas {
   width: 100vw;
   height: 100vh;
-  border: solid black 2px;
-  position: fixed;
+  border: solid red 2px;
+  /* keep position commented out until I know JS is working. */
+  /* position: fixed; */
+  /* margin-bottom: 10rem; */
+}
+
+.redBorder {
+  border: red solid 0.2rem;
 }
