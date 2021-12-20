@@ -1,195 +1,46 @@
-// FUNCTION - toggle tool buttons
-// CREATE FUNCTION - when one button is toggled, don't allow others to be toggled
-document.querySelector(".newRoute").addEventListener("click", toggleNewRoute);
-document.querySelector(".import").addEventListener("click", toggleImport);
-document.querySelector(".pen").addEventListener("click", togglePen);
-document.querySelector(".undo").addEventListener("click", toggleUndo);
-document.querySelector(".textBox").addEventListener("click", toggleTextBox);
-document.querySelector(".leftHand").addEventListener("click", toggleLeftHand);
-document.querySelector(".rightHand").addEventListener("click", toggleRightHand);
-document.querySelector(".leftFoot").addEventListener("click", toggleLeftFoot);
-document.querySelector(".rightFoot").addEventListener("click", toggleRightFoot);
-document.querySelector(".match").addEventListener("click", toggleMatch);
-document.querySelector(".bolt").addEventListener("click", toggleBolt);
-document.querySelector(".anchors").addEventListener("click", toggleAnchors);
+// *** FREE-DRAW SCRIPT *** 
+// set up function to allow finger to draw on mobile.
+const canvas = document.querySelector(".canvas");
+const ctx = canvas.getContext("2d");
+let coord = { x: 0, y: 0 };
+const penButton = document.querySelector(".pen");
+let canvasOn = false;
+// function to change all buttons to solid run colour when clicked
 
-function toggleNewRoute() {
-    document.querySelector(".newRoute").classList.toggle("redBorder");
-    document.querySelector(".import").classList.remove("redBorder");
-    document.querySelector(".pen").classList.remove("redBorder");
-    document.querySelector(".undo").classList.remove("redBorder");
-    document.querySelector(".textBox").classList.remove("redBorder");
-    document.querySelector(".leftHand").classList.remove("redBorder");
-    document.querySelector(".rightHand").classList.remove("redBorder");
-    document.querySelector(".leftFoot").classList.remove("redBorder");
-    document.querySelector(".rightFoot").classList.remove("redBorder");
-    document.querySelector(".match").classList.remove("redBorder");
-    document.querySelector(".bolt").classList.remove("redBorder");
-    document.querySelector(".anchors").classList.remove("redBorder");
-    document.removeEventListener("mousedown", start);
+penButton.addEventListener("click", allowDraw);
+document.addEventListener("mouseup", stop);
+window.addEventListener("resize", resize);
+
+resize();
+
+function resize() {
+    ctx.canvas.width = window.innerWidth;
+    ctx.canvas.height = window.innerHeight;
 }
-function toggleImport() {
-    document.querySelector(".newRoute").classList.remove("redBorder");
-    document.querySelector(".import").classList.toggle("redBorder");
-    document.querySelector(".pen").classList.remove("redBorder");
-    document.querySelector(".undo").classList.remove("redBorder");
-    document.querySelector(".textBox").classList.remove("redBorder");
-    document.querySelector(".leftHand").classList.remove("redBorder");
-    document.querySelector(".rightHand").classList.remove("redBorder");
-    document.querySelector(".leftFoot").classList.remove("redBorder");
-    document.querySelector(".rightFoot").classList.remove("redBorder");
-    document.querySelector(".match").classList.remove("redBorder");
-    document.querySelector(".bolt").classList.remove("redBorder");
-    document.querySelector(".anchors").classList.remove("redBorder");
-    document.removeEventListener("mousedown", start);
+function reposition(event) {
+    coord.x = event.clientX - canvas.offsetLeft;
+    coord.y = event.clientY - canvas.offsetTop;
 }
-function togglePen() {
-    document.querySelector(".newRoute").classList.remove("redBorder");
-    document.querySelector(".import").classList.remove("redBorder");
-    document.querySelector(".pen").classList.toggle("redBorder");
-    document.querySelector(".undo").classList.remove("redBorder");
-    document.querySelector(".textBox").classList.remove("redBorder");
-    document.querySelector(".leftHand").classList.remove("redBorder");
-    document.querySelector(".rightHand").classList.remove("redBorder");
-    document.querySelector(".leftFoot").classList.remove("redBorder");
-    document.querySelector(".rightFoot").classList.remove("redBorder");
-    document.querySelector(".match").classList.remove("redBorder");
-    document.querySelector(".bolt").classList.remove("redBorder");
-    document.querySelector(".anchors").classList.remove("redBorder");
-    // document.removeEventListener("mousedown", start);
+function allowDraw() {
+    document.addEventListener("mousedown", start);
 }
-function toggleUndo() {
-    document.querySelector(".newRoute").classList.remove("redBorder");
-    document.querySelector(".import").classList.remove("redBorder");
-    document.querySelector(".pen").classList.remove("redBorder");
-    document.querySelector(".undo").classList.toggle("redBorder");
-    document.querySelector(".textBox").classList.remove("redBorder");
-    document.querySelector(".leftHand").classList.remove("redBorder");
-    document.querySelector(".rightHand").classList.remove("redBorder");
-    document.querySelector(".leftFoot").classList.remove("redBorder");
-    document.querySelector(".rightFoot").classList.remove("redBorder");
-    document.querySelector(".match").classList.remove("redBorder");
-    document.querySelector(".bolt").classList.remove("redBorder");
-    document.querySelector(".anchors").classList.remove("redBorder");    
-    document.removeEventListener("mousedown", start);
+
+function start(event) {
+    document.addEventListener("mousemove", draw);
+    reposition(event);
 }
-function toggleTextBox() {
-    document.querySelector(".newRoute").classList.remove("redBorder");
-    document.querySelector(".import").classList.remove("redBorder");
-    document.querySelector(".pen").classList.remove("redBorder");
-    document.querySelector(".undo").classList.remove("redBorder");
-    document.querySelector(".textBox").classList.toggle("redBorder");
-    document.querySelector(".leftHand").classList.remove("redBorder");
-    document.querySelector(".rightHand").classList.remove("redBorder");
-    document.querySelector(".leftFoot").classList.remove("redBorder");
-    document.querySelector(".rightFoot").classList.remove("redBorder");
-    document.querySelector(".match").classList.remove("redBorder");
-    document.querySelector(".bolt").classList.remove("redBorder");
-    document.querySelector(".anchors").classList.remove("redBorder");    
-    document.removeEventListener("mousedown", start);
+
+function stop() {
+    document.removeEventListener("mousemove", draw);
 }
-function toggleLeftHand() {
-    document.querySelector(".newRoute").classList.remove("redBorder");
-    document.querySelector(".import").classList.remove("redBorder");
-    document.querySelector(".pen").classList.remove("redBorder");
-    document.querySelector(".undo").classList.remove("redBorder");
-    document.querySelector(".textBox").classList.remove("redBorder");
-    document.querySelector(".leftHand").classList.toggle("redBorder");
-    document.querySelector(".rightHand").classList.remove("redBorder");
-    document.querySelector(".leftFoot").classList.remove("redBorder");
-    document.querySelector(".rightFoot").classList.remove("redBorder");
-    document.querySelector(".match").classList.remove("redBorder");
-    document.querySelector(".bolt").classList.remove("redBorder");
-    document.querySelector(".anchors").classList.remove("redBorder");
-    document.removeEventListener("mousedown", start);
-}
-function toggleRightHand() {
-    document.querySelector(".newRoute").classList.remove("redBorder");
-    document.querySelector(".import").classList.remove("redBorder");
-    document.querySelector(".pen").classList.remove("redBorder");
-    document.querySelector(".undo").classList.remove("redBorder");
-    document.querySelector(".textBox").classList.remove("redBorder");
-    document.querySelector(".leftHand").classList.remove("redBorder");
-    document.querySelector(".rightHand").classList.toggle("redBorder");
-    document.querySelector(".leftFoot").classList.remove("redBorder");
-    document.querySelector(".rightFoot").classList.remove("redBorder");
-    document.querySelector(".match").classList.remove("redBorder");
-    document.querySelector(".bolt").classList.remove("redBorder");
-    document.querySelector(".anchors").classList.remove("redBorder");
-    document.removeEventListener("mousedown", start);
-}
-function toggleLeftFoot() {
-    document.querySelector(".newRoute").classList.remove("redBorder");
-    document.querySelector(".import").classList.remove("redBorder");
-    document.querySelector(".pen").classList.remove("redBorder");
-    document.querySelector(".undo").classList.remove("redBorder");
-    document.querySelector(".textBox").classList.remove("redBorder");
-    document.querySelector(".leftHand").classList.remove("redBorder");
-    document.querySelector(".rightHand").classList.remove("redBorder");
-    document.querySelector(".leftFoot").classList.toggle("redBorder");
-    document.querySelector(".rightFoot").classList.remove("redBorder");
-    document.querySelector(".match").classList.remove("redBorder");
-    document.querySelector(".bolt").classList.remove("redBorder");
-    document.querySelector(".anchors").classList.remove("redBorder");
-    document.removeEventListener("mousedown", start);
-}
-function toggleRightFoot() {
-    document.querySelector(".newRoute").classList.remove("redBorder");
-    document.querySelector(".import").classList.remove("redBorder");
-    document.querySelector(".pen").classList.remove("redBorder");
-    document.querySelector(".undo").classList.remove("redBorder");
-    document.querySelector(".textBox").classList.remove("redBorder");
-    document.querySelector(".leftHand").classList.remove("redBorder");
-    document.querySelector(".rightHand").classList.remove("redBorder");
-    document.querySelector(".leftFoot").classList.remove("redBorder");
-    document.querySelector(".rightFoot").classList.toggle("redBorder");
-    document.querySelector(".match").classList.remove("redBorder");
-    document.querySelector(".bolt").classList.remove("redBorder");
-    document.querySelector(".anchors").classList.remove("redBorder");
-    document.removeEventListener("mousedown", start);
-}
-function toggleMatch() {
-    document.querySelector(".newRoute").classList.remove("redBorder");
-    document.querySelector(".import").classList.remove("redBorder");
-    document.querySelector(".pen").classList.remove("redBorder");
-    document.querySelector(".undo").classList.remove("redBorder");
-    document.querySelector(".textBox").classList.remove("redBorder");
-    document.querySelector(".leftHand").classList.remove("redBorder");
-    document.querySelector(".rightHand").classList.remove("redBorder");
-    document.querySelector(".leftFoot").classList.remove("redBorder");
-    document.querySelector(".rightFoot").classList.remove("redBorder");
-    document.querySelector(".match").classList.toggle("redBorder");
-    document.querySelector(".bolt").classList.remove("redBorder");
-    document.querySelector(".anchors").classList.remove("redBorder");
-    document.removeEventListener("mousedown", start);
-}
-function toggleBolt() {
-    document.querySelector(".newRoute").classList.remove("redBorder");
-    document.querySelector(".import").classList.remove("redBorder");
-    document.querySelector(".pen").classList.remove("redBorder");
-    document.querySelector(".undo").classList.remove("redBorder");
-    document.querySelector(".textBox").classList.remove("redBorder");
-    document.querySelector(".leftHand").classList.remove("redBorder");
-    document.querySelector(".rightHand").classList.remove("redBorder");
-    document.querySelector(".leftFoot").classList.remove("redBorder");
-    document.querySelector(".rightFoot").classList.remove("redBorder");
-    document.querySelector(".match").classList.remove("redBorder");
-    document.querySelector(".bolt").classList.toggle("redBorder");
-    document.querySelector(".anchors").classList.remove("redBorder");
-    document.removeEventListener("mousedown", start);
-}
-function toggleAnchors() {
-    document.querySelector(".newRoute").classList.remove("redBorder");
-    document.querySelector(".import").classList.remove("redBorder");
-    document.querySelector(".pen").classList.remove("redBorder");
-    document.querySelector(".undo").classList.remove("redBorder");
-    document.querySelector(".textBox").classList.remove("redBorder");
-    document.querySelector(".leftHand").classList.remove("redBorder");
-    document.querySelector(".rightHand").classList.remove("redBorder");
-    document.querySelector(".leftFoot").classList.remove("redBorder");
-    document.querySelector(".rightFoot").classList.remove("redBorder");
-    document.querySelector(".match").classList.remove("redBorder");
-    document.querySelector(".bolt").classList.remove("redBorder");
-    document.querySelector(".anchors").classList.toggle("redBorder");
-    document.removeEventListener("mousedown", start);
+
+function draw(event) {
+    ctx.beginPath();
+    ctx.lineWidth = 2;
+    ctx.lineCap = "round";
+    ctx.strokeStyle = "black";
+    ctx.moveTo(coord.x, coord.y);
+    reposition(event);
+    ctx.lineTo(coord.x, coord.y);
+    ctx.stroke();
 }
