@@ -25,12 +25,6 @@ header {
   padding: 2vh;
 }
 
-/* @media (min-width: 800px) {
-  .betaBaseLogo {
-    /* margin: auto; */
-/* }
-} */
-
 .hamburgerImg {
   width: 30px;
   height: 30px;
@@ -45,17 +39,6 @@ header {
 .mainNav {
   display: none;
 }
-
-/* .xLogo {
-  display: none;
-}
-
-.xLogoVisible {
-  color: white;
-  font-size: 5rem;
-  height: 30px;
-  width: 30px;
-} */
 
 a {
   text-decoration: none;
@@ -77,21 +60,15 @@ a {
   font-size: 1rem;
   text-align: right;
   background: #d3d3d3;
-  position: relative;
   padding: 0.6rem 0.5rem 0.6rem 0;
   margin-left: auto;
   margin-right: 0;
-  /* need to make this relative, but how? */
-  position: absolute;
-  z-index: 2;
 }
 
 .dropDownContent {
   margin: 0.5vh 0 0.5vh 0;
   line-height: 1rem;
   color: white;
-  /* position: relative;
-  z-index: 2; */
 }
 
 @media (min-width: 650px) {
@@ -121,7 +98,7 @@ a {
 }
 
 .toolMenuVisible {
-  background: #ff7f50;
+  background: #ffb699;
   width: 15vw;
   display: flex;
   flex-direction: column;
@@ -135,24 +112,59 @@ a {
 .toolImg {
   width: 5vh;
   margin: 0.8vh;
-  border: black solid 0.2rem;
+  border: #ffb699 solid 0.2rem;
   border-radius: 0.5rem;
 }
-
-/* .toolImg:hover,
-.pen:focus {
-  border: red solid 0.2rem;
-} */
 
 canvas {
   width: 100vw;
   height: 100vh;
-  border: solid red 2px;
-  /* keep position commented out until I know JS is working. */
-  /* position: fixed; */
-  /* margin-bottom: 10rem; */
+  background: white;
 }
 
 .redBorder {
-  border: red solid 0.2rem;
+  border: #ff7f50 solid 0.2rem;
+}
+
+.modal {
+  visibility: visible;
+  position: fixed;
+  top: 40vh;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  max-height: 40vh;
+  width: 65vw;
+  background: #ff7f50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* z-index: 100; */
+}
+
+.modalMessage {
+  color: white;
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 3vh 1vw 0 1vw;
+  max-width: 55vw;
+  line-height: 1.6rem;
+}
+
+.modalDismiss {
+  color: #ff7f50;
+  background: white;
+  font-size: 1rem;
+  padding: 0.6rem 1rem;
+  line-height: 6rem;
+  white-space: nowrap;
+}
+
+@media (min-width: 650px) {
+  .modal {
+    height: 30vh;
+    width: 40vw;
+  }
 }

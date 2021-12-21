@@ -1,17 +1,15 @@
-// function to erase
+// FUNCTION FOR MODAL CLOSE
+const modalDismiss = document.querySelector(".modalDismiss");
+modalDismiss.addEventListener("click", modalClose);
 
-// function to clear all?
-
-// function to save to an svg?
-
-// function - when 'tools' button is clicked, show <aside> tag which contains all the tools
-// add LH, RH, LF, RF images to be placed on canvas when buttons are clicked
+function modalClose() {
+    document.querySelector(".modal").style.visibility = "hidden";
+}
 
 // TOGGLE HAMBURGER MENU
 // locate hamburger image
 const hamburgerImg = document.querySelector(".hamburgerImg");
 const dropDownMenu = document.querySelector(".dropDownMenu");
-const xLogo = document.querySelector(".xLogo");
 
 // add "click" event listener to hamburger image
 hamburgerImg.addEventListener("click", toggleDropDownMenu);
@@ -22,7 +20,6 @@ function toggleDropDownMenu() {
     // change hamburger menu to x symbol
 //    .classList.toggle("xLogoVisible");
 }
-
 
 // TOGGLE TOOLS MENU
 // locate tool text and toolMenu
@@ -44,3 +41,13 @@ function text() {
     ctx.fillText("Hello World", 50, 50);
     console.log(text);
 }
+
+
+// function to erase
+
+// function to clear all?
+
+// function to save to an svg?
+
+// function - when 'tools' button is clicked, show <aside> tag which contains all the tools
+// add LH, RH, LF, RF images to be placed on canvas when buttons are clicked
