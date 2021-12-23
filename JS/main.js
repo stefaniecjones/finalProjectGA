@@ -1,4 +1,4 @@
-// FUNCTION FOR MODAL CLOSE
+// =========== FUNCTION FOR MODAL CLOSE =============
 const modalDismiss = document.querySelector(".modalDismiss");
 modalDismiss.addEventListener("click", modalClose);
 
@@ -6,7 +6,7 @@ function modalClose() {
     document.querySelector(".modal").style.visibility = "hidden";
 }
 
-// TOGGLE HAMBURGER MENU
+// ======= TOGGLE HAMBURGER MENU ============
 // locate hamburger image
 const hamburgerImg = document.querySelector(".hamburgerImg");
 const dropDownMenu = document.querySelector(".dropDownMenu");
@@ -21,7 +21,7 @@ function toggleDropDownMenu() {
 //    .classList.toggle("xLogoVisible");
 }
 
-// TOGGLE TOOLS MENU
+// ============= TOGGLE TOOLS MENU =================
 // locate tool text and toolMenu
 const mainNavToolButton = document.querySelector(".mainNavTools");
 const dropDownToolButton = document.querySelector(".dropDownTools");

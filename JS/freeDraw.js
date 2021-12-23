@@ -1,10 +1,10 @@
-// *** FREE-DRAW SCRIPT *** 
+// FREE-DRAW SCRIPT
+// ================================================
 // set up function to allow finger to draw on mobile.
 const canvas = document.querySelector(".canvas");
 const ctx = canvas.getContext("2d");
 let coord = { x: 0, y: 0 };
 const penButton = document.querySelector(".pen");
-let canvasOn = false;
 // function to change all buttons to solid run colour when clicked
 
 penButton.addEventListener("click", allowDraw);
@@ -24,16 +24,13 @@ function reposition(event) {
 function allowDraw() {
     document.addEventListener("mousedown", start);
 }
-
 function start(event) {
     document.addEventListener("mousemove", draw);
     reposition(event);
 }
-
 function stop() {
     document.removeEventListener("mousemove", draw);
 }
-
 function draw(event) {
     ctx.beginPath();
     ctx.lineWidth = 2;

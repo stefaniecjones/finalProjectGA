@@ -1,4 +1,4 @@
-// FUNCTION - toggle tool buttons
+// ================ FUNCTION - toggle tool buttons =======================
 // CREATE FUNCTION - when one button is toggled, don't allow others to be toggled
 document.querySelector(".newRoute").addEventListener("click", toggleNewRoute);
 document.querySelector(".import").addEventListener("click", toggleImport);

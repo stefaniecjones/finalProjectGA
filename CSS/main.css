@@ -105,7 +105,6 @@ a {
   justify-content: flex-start;
   align-items: center;
   height: 100vh;
-  /* need to change to relative alternative positioning */
   position: absolute;
 }
 
